@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Needed to perform SSO logout with Auth0. By default, Spring will clear the SecurityContext and the session.
- * This controller will also log users out of Auth0 by calling the Auth0 logout endpoint.
- */
+
 @Controller
 public class LogoutHandler extends SecurityContextLogoutHandler {
 
@@ -35,7 +32,6 @@ public class LogoutHandler extends SecurityContextLogoutHandler {
         super.logout(httpServletRequest, httpServletResponse, authentication);
 
         // Build the URL to log the user out of Auth0 and redirect them to the home page.
-        // URL will look like https://YOUR-DOMAIN/v2/logout?clientId=YOUR-CLIENT-ID&returnTo=http://localhost:3000
         String issuer = (String) getClientRegistration().getProviderDetails().getConfigurationMetadata().get("issuer");
         String clientId = getClientRegistration().getClientId();
         String returnTo = ServletUriComponentsBuilder.fromCurrentContextPath().build().toString();
