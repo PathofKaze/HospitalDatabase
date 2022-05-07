@@ -34,8 +34,8 @@ jobs:
     - name: Upload coverage badge to DigitalOcean spaces
       uses: BetaHuhn/do-spaces-action@v2
       with:
-        access_key: ${{ access_key }}
-        secret_key: ${{ secret_key }}
+        access_key: ${{ secrets.access_key }}
+        secret_key: ${{ secrets.secret_key }}
         space_name: bigbucket
         space_region: sgp1
         source: .github/badges/jacoco.svg
