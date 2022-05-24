@@ -1,14 +1,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-    <body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Portfolio Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.1/examples/sign-in/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" 
+    integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-image: url('https://chum-bucket.sgp1.digitaloceanspaces.com/hospital.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        h1   {color: blue;}
+        p    {color: red;}
+</style>
+</head>
+
+<body class="text-center>
+
+    <div class="form-signin">
+        <form class="form-signin" method="POST" action="/authenticate">
+        
         <div sec:authorize="!isAuthenticated()">
             <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
         </div>
+        
         <div sec:authorize="isAuthenticated()">
             <p>You are logged in!</p>
             <img th:src="${profile.get('picture')}" th:attr="alt=${profile.get('name')}"/>
             <h2 th:text="${profile.get('name')}"></h2>
             <p th:text="${profile.get('email')}"></p>
             <a th:href="@{/logout}">Log Out</a>
+        
         </div>
     </body>
 </html>

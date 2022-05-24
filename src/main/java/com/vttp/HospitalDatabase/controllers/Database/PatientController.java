@@ -1,8 +1,8 @@
 package com.vttp.HospitalDatabase.controllers.Database;
 
 import com.vttp.HospitalDatabase.models.Patient;
-import com.vttp.HospitalDatabase.services.PatientService;
 import com.vttp.HospitalDatabase.services.PatientException;
+import com.vttp.HospitalDatabase.services.PatientService;
 import static com.vttp.HospitalDatabase.models.ConversionUtils.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(path={"/database", "/Database.html"})
-public class DatabaseController {
-
+@RequestMapping(path="/PatientForm.html")
+public class PatientController {
+    
     @Autowired
-    private PatientService patientSvc;
-
+    private PatientService PatientSvc;
+    
     @PostMapping
     public ModelAndView postPatient(@RequestBody MultiValueMap<String, String> form) {
 
@@ -31,17 +31,18 @@ public class DatabaseController {
         ModelAndView mvc = new ModelAndView();
 
         try {
-            patientSvc.addNewPatient(patient);
+            PatientSvc.addNewPatient(patient);
             mvc.addObject("message", "%s has been added as one of your patients".formatted(patient.getName()));
-            mvc.addObject("bffs", patientSvc.getAllPatients());
+            mvc.addObject("patients", PatientSvc.getAllPatients());
         } catch (PatientException ex) {
             mvc.addObject("message", "Error: %s".formatted(ex.getReason()));
             mvc.setStatus(HttpStatus.BAD_REQUEST);
             ex.printStackTrace();
         }
 
-        mvc.setViewName("database");
+        mvc.setViewName("index");
 
         return mvc;
     }
 }
+

@@ -1,0 +1,58 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1.3511723726708038,
+          103.93278899044
+        ]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "patient",
+        "name": "Wang Yang Si",
+        "prognosis": "Under hemodialysis with chronic hypertension.",
+        "email": "wangys@gmail.com",
+        "phone": "97230492",
+        "dob": "05/23/1972",
+        "patientid": "01"
+      }
+    },
+      {
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1.3300775084396348,
+            103.84244827561326
+          ]
+        },
+        "type": "Feature",
+        "properties": {
+          "category": "patient",
+          "name": "Muhammad Abdul Bin Said",
+          "prognosis": "Diabetic with gout, walking difficulties.",
+          "email": "mabsaid@gmail.com",
+          "phone": "82145938",
+          "Dob": "03/19/1954",
+          "patientid": "02"
+        }
+      },
+      {
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1.437021,
+            103.801106
+          ]
+        },
+        "type": "Feature",
+        "properties": {
+          "category": "patient",
+          "name": "Raja Dhirubhai",
+          "prognosis": "Colorectal cancer patient under chemotherapy.",
+          "email": "rajad@outlook.com",
+          "phone": "98219421",
+          "dob": "12/09/1984",
+          "patientid": "03"
+        }
+      }
+    ]
+  }
