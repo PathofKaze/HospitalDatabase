@@ -33,7 +33,7 @@ public class DatabaseController {
         try {
             patientSvc.addNewPatient(patient);
             mvc.addObject("message", "%s has been added as one of your patients".formatted(patient.getName()));
-            mvc.addObject("bffs", patientSvc.getAllPatients());
+            mvc.addObject("patients", patientSvc.getAllPatients());
         } catch (PatientException ex) {
             mvc.addObject("message", "Error: %s".formatted(ex.getReason()));
             mvc.setStatus(HttpStatus.BAD_REQUEST);
